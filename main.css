@@ -40,6 +40,10 @@ h2 {
 }
 
 .login-div {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background:#1f2545;
     border-radius: 5px;
     padding:15px;
