@@ -28,10 +28,21 @@ a {
 button {
     outline: none;
     cursor: pointer;
+    background:#455595;
+    color:white;
+    padding:8px;
+    border: 0px solid black;
+    border-radius: 5px;
 }
 
 h2 {
     word-wrap: break-word;
+}
+
+.login-div {
+    background:#1f2545;
+    border-radius: 5px;
+    padding:15px;
 }
 
 .container {
