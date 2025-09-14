@@ -25,6 +25,11 @@ a {
     text-decoration: none;
 }
 
+button {
+    outline: none;
+    cursor: pointer;
+}
+
 .btn {
     outline: none;
     cursor: pointer;
