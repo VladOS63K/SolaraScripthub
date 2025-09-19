@@ -33,11 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var regBtn = document.getElementById("register-btn");
 
     loginBtn.onclick = function () {
-        fetch("https://147.185.221.19:7132/solara-scriptdb/getidbyusername?username=" + encodeURIComponent(loginBox.value)).then(r => {
+        fetch("https://147.185.221.19:7132/solara-scriptdb/getidbyusername?username=" + encodeURIComponent(loginBox.value),{mode: "cors"}).then(r => {
             if (r.status == 200) {
                 r.text().then(t => {
                     var id = JSON.parse(t).id;
-                    fetch("https://147.185.221.19:7132/solara-scriptdb/checkpassword?id=" + id + "&passwd=" + encodeURIComponent(passwdBox.value)).then(r => {
+                    fetch("https://147.185.221.19:7132/solara-scriptdb/checkpassword?id=" + id + "&passwd=" + encodeURIComponent(passwdBox.value),{mode: "cors"}).then(r => {
                         if (r.status != 200) {
                             alert("Invalid password!");
                         }
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     regBtn.onclick = function () {
         if (regLoginBox.checkValidity() && regPasswdBox.checkValidity() && regEmailBox.checkValidity() && !regLoginBox.value.includes(" ") && !regPasswdBox.value.includes(" ")) {
-            fetch("https://147.185.221.19:7132/solara-scriptdb/newuser?username=" + encodeURIComponent(regLoginBox.value)+"&password="+encodeURIComponent(regPasswdBox.value)+"&email="+encodeURIComponent(regEmailBox.value)+"&emailagree="+(regEmailAgree.checked ? "1" : "0")).then(r => {
+            fetch("https://147.185.221.19:7132/solara-scriptdb/newuser?username=" + encodeURIComponent(regLoginBox.value)+"&password="+encodeURIComponent(regPasswdBox.value)+"&email="+encodeURIComponent(regEmailBox.value)+"&emailagree="+(regEmailAgree.checked ? "1" : "0"),{mode: "cors"}).then(r => {
                 if (r.status == 200) {
                     r.text().then(t => {
                         var id = JSON.parse(t).newuserid;

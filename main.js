@@ -6,7 +6,7 @@ function createScriptCard(id, userid, name, description, script) {
 
     bottombardiv.className = "bottom-script-div";
     var userlink = document.createElement("a");
-    fetch("https://147.185.221.19:7132/solara-scriptdb/getuserdata?id=" + userid).then(r => {
+    fetch("https://147.185.221.19:7132/solara-scriptdb/getuserdata?id=" + userid,{mode: "cors"}).then(r => {
         if (r.status == 200) {
             r.text().then(text => {
                 var resp = JSON.parse(text);
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     currentUserId = getCookie("username");
     if (currentUserId != null) {
         document.querySelector(".login-btn").style.display = "none";
-        fetch("https://147.185.221.19:7132/solara-scriptdb/getuserdata?id=" + currentUserId).then(r => {
+        fetch("https://147.185.221.19:7132/solara-scriptdb/getuserdata?id=" + currentUserId,{mode: "cors"}).then(r => {
             if (r.status == 200) {
                 r.text().then(text => {
                     var resp = JSON.parse(text);
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
     if (currentUserId != null) {
-        fetch("https://147.185.221.19:7132/solara-scriptdb/checkpassword?id="+currentUserId+"&passwd="+getCookie("passwd")).then(r => {
+        fetch("https://147.185.221.19:7132/solara-scriptdb/checkpassword?id="+currentUserId+"&passwd="+getCookie("passwd"),{mode: "cors"}).then(r => {
             if (r.status != 200) {
                 alert("Invalid password! Logging out...");
                 eraseCookie("username");
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    fetch("https://147.185.221.19:7132/solara-scriptdb/getscripts").then(r => {
+    fetch("https://147.185.221.19:7132/solara-scriptdb/getscripts",{mode: "cors"}).then(r => {
         r.text().then(text => {
             var resp = JSON.parse(text);
             resp.scripts.forEach(e => {

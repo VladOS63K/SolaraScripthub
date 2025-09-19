@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "/SolaraScripthub";
     }
     if (currentUserId != null) {
-        fetch("https://147.185.221.19:7132/solara-scriptdb/checkpassword?id="+currentUserId+"&passwd="+getCookie("passwd")).then(r => {
+        fetch("https://147.185.221.19:7132/solara-scriptdb/checkpassword?id="+currentUserId+"&passwd="+getCookie("passwd"),{mode: "cors"}).then(r => {
             if (r.status != 200) {
                 alert("Invalid password! Logging out...");
                 eraseCookie("username");
@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         else {
             fetch("https://147.185.221.19:7132/solara-scriptdb/newscript?creator="+currentUserId+"&name="+encodeURIComponent(scriptNameBox.value)+"&description="+encodeURIComponent(scriptDescBox.value), {
                 method: "post",
+                mode: "cors",
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'text/plain'
