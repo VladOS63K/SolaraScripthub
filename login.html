@@ -18,6 +18,7 @@
             src="https://code.jquery.com/jquery-3.7.1.js"
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
             crossorigin="anonymous"></script>
+    <script src='cookies.js'></script>
     <script src='login.js'></script>
 </head>
 <body>
@@ -29,14 +30,26 @@
         <div class="account">
             <img src="https://img.icons8.com/32/777777/ios-filled/user" id="account-img" class="account-img" width="32px" height="32px">
             <div id="user-div" style=margin-left:5px;">Not logged in</div>
-            <a class="login-btn" href="/SolaraScripthub/login">Login</a>
+            <a class="login-btn" href>Login</a>
         </div>
-        <div class="content" style="justify-content: center; align-items: center;">
+        <div class="content">
             <div class="login-div">
                 <div style="font-size:18pt;font-weight: bold; margin-bottom: 5px;">Login</div>
                 <input type="text" id="login" style="margin-bottom: 5px;" placeholder="Username" value="">
                 <input type="password" id="passwd" style="margin-bottom: 5px;" placeholder="Password" value="">
                 <button class="btn" style="margin-bottom: 5px;" id="login-btn">Login</button>
+            </div>
+            <div style="display:flex;font-weight:300; justify-content: center;align-items: center;">or</div>
+            <div class="register-div">
+                <div style="font-size:18pt;font-weight: bold; margin-bottom: 5px;">Register</div>
+                <input type="text" id="register-login" minlength="3" maxlength="20" required style="margin-bottom: 5px;" placeholder="Username" value="">
+                <input type="password" id="register-passwd" minlength="4" maxlength="16" required style="margin-bottom: 5px;" placeholder="Password" value="">
+                <input type="email" id="register-email" autocomplete="email" required style="margin-bottom: 5px;" placeholder="Email" value="">
+                <div style="display:flex;">
+                    <input type="checkbox" id="register-email-sending-agree" style="margin-bottom: 5px;">
+                    <label for="register-email-sending-agree">I agree for sending news, updates to my email</label>
+                </div>
+                <button class="btn" style="margin-bottom: 5px;" id="register-btn">Register</button>
             </div>
         </div>
     </div>

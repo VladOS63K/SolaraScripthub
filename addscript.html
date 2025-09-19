@@ -18,36 +18,29 @@
             src="https://code.jquery.com/jquery-3.7.1.js"
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
             crossorigin="anonymous"></script>
-    <script src="cookies.js"></script>
-    <script src='main.js'></script>
+    <script src='cookies.js'></script>
+    <script src='addscript.js'></script>
 </head>
 <body>
-    <dialog id="code-dialog">
-        <div class="dialog-div">
-            <textarea id="scriptviewer-box" class="scriptarea" readonly placeholder="Script..."></textarea>
-            <div class="buttons">
-                <button class="close-btn" onclick="document.getElementById('code-dialog').close();">X</button>
-                <button class="copy-btn" 
-                    onclick="navigator.clipboard.writeText(document.getElementById('scriptviewer-box').innerHTML).then(e=>{alert('Copied!')});">
-                    Copy
-                </button>
-            </div>
-        </div>
-    </dialog>
     <div class="container">
         <div class="navbar">
             <img style="border: 0px solid black; border-radius: 25%;" src="icon.png" alt="Solara Icon" width="32px" height="32px">
-            <a href="" style="margin-left:5px;font-weight: bold;">Solara ScriptHub</a>
-            <div class="navbar-btns">
-                <button class="btn navbtn" onclick="window.location.href = 'addscript'">Add Script</button>
-            </div>
+            <a href="/SolaraScripthub" style="margin-left:5px;font-weight: bold;">Solara ScriptHub</a>
         </div>
         <div class="account">
             <img src="https://img.icons8.com/32/777777/ios-filled/user" id="account-img" class="account-img" width="32px" height="32px">
             <div id="user-div" style=margin-left:5px;">Not logged in</div>
             <a class="login-btn" href="login">Login</a>
         </div>
-        <div class="content" style="overflow-y: auto;"></div>
+        <div class="content">
+            <div class="addscript-div">
+                <div style="font-size:18pt;font-weight: bold; margin-bottom: 5px;">Add Script</div>
+                <input type="text" minlength="1" maxlength="30" required id="script-name-box" style="margin-bottom: 5px;" placeholder="Script name (MAX 30)" value="">
+                <input type="text" minlength="5" maxlength="100" required id="script-desc-box" style="margin-bottom: 5px;" placeholder="Script description (MAX 100)" value="">
+                <textarea id="script-box" required class="scriptarea" placeholder="Script..." value=""></textarea>
+                <button class="btn" style="margin-bottom: 5px;" id="submit-btn">Submit</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
