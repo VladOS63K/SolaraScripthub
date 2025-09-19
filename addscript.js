@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 method: "post",
                 mode:"cors",
                 headers: {
-                    'Access-Control-Allow-Origin':'*'
+                    'Access-Control-Allow-Origin':'*',
                     'Accept': 'application/json',
                     'Content-Type': 'text/plain'
                 },
