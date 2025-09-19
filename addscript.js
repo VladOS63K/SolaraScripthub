@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "/SolaraScripthub";
     }
     if (currentUserId != null) {
-        fetch("https://proxy.corsfix.com/?https://147.185.221.19:7132/solara-scriptdb/checkpassword?id="+currentUserId+"&passwd="+getCookie("passwd"),{mode:"no-cors"}).then(r => {
+        fetch("https://proxy.corsfix.com/?http://147.185.221.19:7132/solara-scriptdb/checkpassword?id="+currentUserId+"&passwd="+getCookie("passwd"),{mode:"no-cors"}).then(r => {
             if (r.status != 200) {
                 alert("Invalid password! Logging out...");
                 eraseCookie("username");
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Please, fill all textboxes correct!")
         }
         else {
-            fetch("https://proxy.corsfix.com/?https://147.185.221.19:7132/solara-scriptdb/newscript?creator="+currentUserId+"&name="+encodeURIComponent(scriptNameBox.value)+"&description="+encodeURIComponent(scriptDescBox.value), {
+            fetch("https://proxy.corsfix.com/?http://147.185.221.19:7132/solara-scriptdb/newscript?creator="+currentUserId+"&name="+encodeURIComponent(scriptNameBox.value)+"&description="+encodeURIComponent(scriptDescBox.value), {
                 method: "post",
                 mode:"no-cors",
                 headers: {

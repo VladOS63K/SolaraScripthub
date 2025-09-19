@@ -6,7 +6,7 @@ function createScriptCard(id, userid, name, description, script) {
 
     bottombardiv.className = "bottom-script-div";
     var userlink = document.createElement("a");
-    fetch("https://proxy.corsfix.com/?https://147.185.221.19:7132/solara-scriptdb/getuserdata?id=" + userid,{mode:"no-cors"}).then(r => {
+    fetch("https://proxy.corsfix.com/?http://147.185.221.19:7132/solara-scriptdb/getuserdata?id=" + userid,{mode:"no-cors"}).then(r => {
         if (r.status == 200) {
             r.text().then(text => {
                 var resp = JSON.parse(text);
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     currentUserId = getCookie("username");
     if (currentUserId != null) {
         document.querySelector(".login-btn").style.display = "none";
-        fetch("https://proxy.corsfix.com/?https://147.185.221.19:7132/solara-scriptdb/getuserdata?id=" + currentUserId,{mode:"no-cors"}).then(r => {
+        fetch("https://proxy.corsfix.com/?http://147.185.221.19:7132/solara-scriptdb/getuserdata?id=" + currentUserId,{mode:"no-cors"}).then(r => {
             if (r.status == 200) {
                 r.text().then(text => {
                     var resp = JSON.parse(text);
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
     if (currentUserId != null) {
-        fetch("https://proxy.corsfix.com/?https://147.185.221.19:7132/solara-scriptdb/checkpassword?id="+currentUserId+"&passwd="+getCookie("passwd"),{mode:"no-cors"}).then(r => {
+        fetch("https://proxy.corsfix.com/?http://147.185.221.19:7132/solara-scriptdb/checkpassword?id="+currentUserId+"&passwd="+getCookie("passwd"),{mode:"no-cors"}).then(r => {
             if (r.status != 200) {
                 alert("Invalid password! Logging out...");
                 eraseCookie("username");
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    fetch("https://proxy.corsfix.com/?https://147.185.221.19:7132/solara-scriptdb/getscripts",{mode:"no-cors"}).then(r => {
+    fetch("https://proxy.corsfix.com/?http://147.185.221.19:7132/solara-scriptdb/getscripts",{mode:"no-cors"}).then(r => {
         r.text().then(text => {
             var resp = JSON.parse(text);
             resp.scripts.forEach(e => {
