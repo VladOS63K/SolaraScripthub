@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "/SolaraScripthub";
     }
     if (currentUserId != null) {
-        fetch("https://proxy.corsfix.com/?https://147.185.221.19:7132/solara-scriptdb/checkpassword?id=" + currentUserId + "&passwd=" + getCookie("passwd")).then(r => {
+        fetch("https://proxy.corsfix.com/?https://147.185.221.19:7132/solara-scriptdb/checkpassword?id=" + currentUserId + "&passwd=" + getCookie("passwd"),{mode:"no-cors"}).then(r => {
             if (r.status != 200) {
                 alert("Invalid password! Logging out...");
                 eraseCookie("username");
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (r.status == 200) {
                 r.text().then(t => {
                     var id = JSON.parse(t).id;
-                    fetch("https://proxy.corsfix.com/?https://147.185.221.19:7132/solara-scriptdb/checkpassword?id=" + id + "&passwd=" + encodeURIComponent(passwdBox.value),{mode: "cors"}).then(r => {
+                    fetch("https://proxy.corsfix.com/?https://147.185.221.19:7132/solara-scriptdb/checkpassword?id=" + id + "&passwd=" + encodeURIComponent(passwdBox.value),{mode: "no-cors"}).then(r => {
                         if (r.status != 200) {
                             alert("Invalid password!");
                         }
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     regBtn.onclick = function () {
         if (regLoginBox.checkValidity() && regPasswdBox.checkValidity() && regEmailBox.checkValidity() && !regLoginBox.value.includes(" ") && !regPasswdBox.value.includes(" ")) {
-            fetch("https://proxy.corsfix.com/?https://147.185.221.19:7132/solara-scriptdb/newuser?username=" + encodeURIComponent(regLoginBox.value)+"&password="+encodeURIComponent(regPasswdBox.value)+"&email="+encodeURIComponent(regEmailBox.value)+"&emailagree="+(regEmailAgree.checked ? "1" : "0"),{mode: "cors"}).then(r => {
+            fetch("https://proxy.corsfix.com/?https://147.185.221.19:7132/solara-scriptdb/newuser?username=" + encodeURIComponent(regLoginBox.value)+"&password="+encodeURIComponent(regPasswdBox.value)+"&email="+encodeURIComponent(regEmailBox.value)+"&emailagree="+(regEmailAgree.checked ? "1" : "0"),{mode: "no-cors"}).then(r => {
                 if (r.status == 200) {
                     r.text().then(t => {
                         var id = JSON.parse(t).newuserid;
